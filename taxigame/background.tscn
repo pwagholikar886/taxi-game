@@ -1,15 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://crejto5ydnkh"]
+[gd_scene load_steps=3 format=3 uid="uid://crejto5ydnkh"]
 
-[ext_resource type="Texture2D" uid="uid://bg2gewei1nchm" path="res://sprites/taxi.png" id="1_o2p7n"]
 [ext_resource type="Texture2D" uid="uid://bwlop7n10h5y1" path="res://top-view-city-seamless_70347-5345.jpg" id="1_xemcp"]
-[ext_resource type="Script" path="res://carScript1.gd" id="2_kwhe8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrpme"]
 radius = 12.0
 height = 58.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jglu7"]
-size = Vector2(112, 139)
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,22 +13,9 @@ position = Vector2(576, 324)
 scale = Vector2(1.08679, 0.611321)
 texture = ExtResource("1_xemcp")
 
-[node name="Taxi" type="Sprite2D" parent="."]
-position = Vector2(170, 119)
-rotation = 1.5708
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_o2p7n")
-script = ExtResource("2_kwhe8")
-
 [node name="Taxi Collision Thing" type="Area2D" parent="."]
 position = Vector2(0, 648)
 
 [node name="Actual Collision Thing" type="CollisionShape2D" parent="Taxi Collision Thing"]
 position = Vector2(170, -530)
 shape = SubResource("CapsuleShape2D_hrpme")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(56, 69.5)
-shape = SubResource("RectangleShape2D_jglu7")

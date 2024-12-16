@@ -7,10 +7,11 @@ var rot_vel = 0
 # Constants
 const rotAcc = 20
 const driveAcc = 4000
-const rotFric = 0.05
-const rollFric = 0.01
+const rotFric = 0.1
+const rollFric = 0.05
 const perpFric = 0.1
 const driftFric = 0.01
+const rot_tolerance = 300
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,10 +33,11 @@ func _process(dt: float) -> void:
 		vel = addVecs(vel, multVec(straight, driveAcc * dt))
 	if Input.is_action_pressed("reverse"):
 		vel = addVecs(vel, multVec(straight, -driveAcc * dt))
-	if Input.is_action_pressed("turn_left"):
-		rot_vel += rotAcc * dt
-	if Input.is_action_pressed("turn_right"):
-		rot_vel -= rotAcc * dt
+	if magnitude(vel) > rot_tolerance:
+		if Input.is_action_pressed("turn_left"):
+			rot_vel += rotAcc * dt
+		if Input.is_action_pressed("turn_right"):
+			rot_vel -= rotAcc * dt
 	
 	# Check if space is pressed to increase drifting or keep skid friction high
 	var perpFricApplied
@@ -55,7 +57,7 @@ func _process(dt: float) -> void:
 	vel = addVecs(vel, vec_to_remove)
 	
 	# Apply turning friction
-	rot_vel *= (1 - rotFric)
+	rot_vel *= (1 -  rotFric)
 	
 	# Update position
 	position.x += vel[0] * dt

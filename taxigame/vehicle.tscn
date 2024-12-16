@@ -15,9 +15,10 @@ animations = [{
 }]
 
 [node name="vehicle" type="Area2D"]
-position = Vector2(100, 100)
+position = Vector2(282, 159)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_luaq6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_qco5o")

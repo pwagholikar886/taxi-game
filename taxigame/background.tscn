@@ -1,12 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://crejto5ydnkh"]
+[gd_scene load_steps=4 format=3 uid="uid://crejto5ydnkh"]
 
 [ext_resource type="Texture2D" uid="uid://bwlop7n10h5y1" path="res://top-view-city-seamless_70347-5345.jpg" id="1_xemcp"]
+[ext_resource type="PackedScene" uid="uid://dbfrbl2t1t3a1" path="res://vehicle.tscn" id="2_12s0o"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovja2"]
+size = Vector2(132.331, 1.09856)
 
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
+[node name="background" type="Node2D"]
+position = Vector2(67, 121)
+
+[node name="Border" type="StaticBody2D" parent="."]
+position = Vector2(-67, -121)
+scale = Vector2(8.73209, 27.1104)
+
+[node name="BorderHitbox" type="CollisionShape2D" parent="Border"]
+position = Vector2(65.9921, 0.377738)
+scale = Vector2(0.997377, 0.991147)
+shape = SubResource("RectangleShape2D_ovja2")
+metadata/_edit_lock_ = true
+
+[node name="city" type="Sprite2D" parent="."]
+position = Vector2(509, 203)
 scale = Vector2(1.08679, 0.611321)
 texture = ExtResource("1_xemcp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="vehicle" parent="." instance=ExtResource("2_12s0o")]
+position = Vector2(249, 57)
+
+[node name="Camera2D" type="Camera2D" parent="vehicle"]
+position = Vector2(-10, -10)
+scale = Vector2(1.3069, 1.38858)
+zoom = Vector2(2.5, 2.5)
+limit_left = 0
+limit_top = 0

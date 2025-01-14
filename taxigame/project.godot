@@ -15,6 +15,10 @@ run/main_scene="res://background.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="TaxiGame"
+
 [input]
 
 forward={
@@ -45,4 +49,5 @@ drift={
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

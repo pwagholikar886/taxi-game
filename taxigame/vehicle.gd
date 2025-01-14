@@ -58,7 +58,6 @@ func _process(dt: float) -> void:
 	
 	# Apply turning friction
 	rot_vel *= (1 -  rotFric)
-	
 	# Update position
 	position.x += vel[0] * dt
 	position.y += vel[1] * dt
@@ -81,3 +80,10 @@ func multVec(vec, val) -> Array:
 	
 	
 	
+
+
+func _on_area_2d_area_entered(area):
+	print("hit")
+	vel[0]*=-1
+	vel[1]*=-1
+	rot_vel*=-1

@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbfrbl2t1t3a1"]
 
 [ext_resource type="Script" path="res://vehicle.gd" id="1_luaq6"]
-[ext_resource type="Texture2D" uid="uid://bg2gewei1nchm" path="res://sprites/taxi.png" id="2_52ntb"]
+[ext_resource type="Texture2D" uid="uid://dg4xbv5awpdb5" path="res://icon.svg" id="2_tni2q"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qco5o"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rvxw3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_52ntb")
+"texture": ExtResource("2_tni2q")
 }],
 "loop": true,
 "name": &"default",
@@ -23,7 +23,7 @@ script = ExtResource("1_luaq6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 0)
-sprite_frames = SubResource("SpriteFrames_qco5o")
+sprite_frames = SubResource("SpriteFrames_rvxw3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-10, 0)

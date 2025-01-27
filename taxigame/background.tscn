@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://crejto5ydnkh"]
 
-[ext_resource type="Texture2D" uid="uid://bwlop7n10h5y1" path="res://top-view-city-seamless_70347-5345.jpg" id="1_xemcp"]
 [ext_resource type="PackedScene" uid="uid://dbfrbl2t1t3a1" path="res://vehicle.tscn" id="2_12s0o"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i5ab7"]
+load_path = "res://.godot/imported/top-view-city-seamless_70347-5345.jpg-e5784283140047e255880c48feb00617.ctex"
 
 [node name="background" type="Node2D"]
 position = Vector2(67, 121)
@@ -9,12 +11,12 @@ position = Vector2(67, 121)
 [node name="Border" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
-polygon = PackedVector2Array(-71, -126, 1088, -121, 1088, 531, -74, 530, -74, -174, -79, 631, 1080, 642, 1239, -131, 112, -301)
+polygon = PackedVector2Array(-65, -123, 1088, -121, 1088, 531, -65, 528, -65, -125, -196, 649, 1196, 663, 1239, -131, 112, -301)
 
 [node name="city" type="Sprite2D" parent="."]
 position = Vector2(509, 203)
 scale = Vector2(1.08679, 0.611321)
-texture = ExtResource("1_xemcp")
+texture = SubResource("CompressedTexture2D_i5ab7")
 
 [node name="vehicle" parent="." instance=ExtResource("2_12s0o")]
 position = Vector2(249, 57)

@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2la1570fmivb"]
+
+[ext_resource type="Texture2D" uid="uid://vkaw8sijq3cb" path="res://sprites/police_car.png" id="1_tl8tr"]
+[ext_resource type="Texture2D" uid="uid://da6hvlkjaiekg" path="res://sprites/flashlight.png" id="2_gs3v8"]
+[ext_resource type="Script" path="res://police.gd" id="2_vi62l"]
+[ext_resource type="Texture2D" uid="uid://b741lfxkhlbx3" path="res://sprites/flashlight_off.png" id="3_6caxx"]
+[ext_resource type="Script" path="res://light.gd" id="5_nprg7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpq5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gs3v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6caxx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3332s"]
+radius = 89.0
+height = 502.0
+
+[node name="police" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(552, 315)
+texture = ExtResource("1_tl8tr")
+script = ExtResource("2_vi62l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_kpq5x")
+script = ExtResource("5_nprg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(547, 293)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3332s")
